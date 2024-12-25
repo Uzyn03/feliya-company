@@ -10,7 +10,7 @@ function scrollToSection(sectionId) {
 
 <template>
   <nav
-    class="sticky top-0 w-full z-30 border-b bg-white border-gray-500 h-[68px] flex text-slate-700"
+    class="sticky top-0 w-full z-30 border-b bg-white border-orange-500 h-[68px] flex text-slate-700"
   >
     <div class="navbar bg-white w-full flex justify-between items-center">
       <div class="navbar-start">
@@ -43,7 +43,7 @@ function scrollToSection(sectionId) {
                             <a @click.prevent="scrollToSection('home')">Home</a>
                         </li>
                         <li>
-                            <a @click.prevent="scrollToSection('produk')"
+                            <a @click.prevent="scrollToSection('product')"
                                 >Produk</a
                             >
                         </li>
@@ -77,7 +77,7 @@ function scrollToSection(sectionId) {
                         <a @click.prevent="scrollToSection('home')">Home</a>
                     </li>
                     <li>
-                        <a @click.prevent="scrollToSection('produk')">Produk</a>
+                        <a @click.prevent="scrollToSection('product')">Produk</a>
                     </li>
                     <li>
                         <a @click.prevent="scrollToSection('contact')"
@@ -98,7 +98,6 @@ function scrollToSection(sectionId) {
             </div>
 
       <div class="navbar-end">
-        <!-- Perbaiki path gambar: hilangkan /public/ -->
         <img src="/public/LogoWhatsApp.png" alt="logoWa" class="h-10 mr-6 hover:brightness-90 cursor-pointer" />
       </div>
     </div>
