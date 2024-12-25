@@ -3,7 +3,7 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      style="background-image: url('/public/FotoBG.jpg')"
+      style="background-image: url('./public/FotoBG.jpg')"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -11,7 +11,7 @@
           Perusahaan AC dan pendingin <br />
           yang Terpercaya
         </h1>
-        <p class="text-sm md:text-lg mt-2 md:w-1/2 mx-auto mb-4">
+        <p class="text-sm md:text-lg mt-2 md:w-1/2 mx-auto mb-10">
           Di PT Feliya Laju Teknik , kami dapat memberi Anda berbagai layanan
           untuk kebutuhan AC dan pendingin Anda. Kami berbasis di Jakarta,
           Indonesia dan mencakup Jabodetabek, Bandung, dan daerah sekitarnya.
