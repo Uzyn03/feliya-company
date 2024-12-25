@@ -28,7 +28,7 @@
                 </aside>
 
                 <nav>
-                    <span class="footer-title text-3xl">Layanan</span>
+                    <span class="footer-title text-2xl">Layanan</span>
                     <a class="link link-hover">Air Conditioner</a>
                     <a class="link link-hover">Air Dryer</a>
                     <a class="link link-hover">Air Purifier</a>
@@ -36,7 +36,7 @@
                 </nav>
 
                 <nav>
-                    <span class="footer-title text-3xl">Company</span>
+                    <span class="footer-title text-2xl">Company</span>
                     <a class="link link-hover">Home</a>
                     <a class="link link-hover">About Us</a>
                     <a class="link link-hover">Contact</a>
@@ -44,7 +44,7 @@
                 </nav>
 
                 <nav>
-                   <span class="footer-title text-3xl">Sosial Media</span>
+                   <span class="footer-title text-2xl">Sosial Media</span>
                     <a class="link link-hover">Facebook</a>
                     <a class="link link-hover">Instagram</a>
                     <a class="link link-hover">Whatsapp</a> 
