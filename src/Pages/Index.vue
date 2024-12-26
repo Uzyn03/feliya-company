@@ -3,7 +3,7 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      style="background-image: url('./public/FotoBG.jpg')"
+      :style="{backgroundImage: `url('${baseUrl}images/FotoBG.jpg')`}"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -305,7 +305,7 @@
         <!-- Image -->
         <div class="mx-auto md:mx-0">
           <img
-            src="/public/about.png"
+            src="/images/about.png"
             alt="about"
             class="h-48 md:h-96 md:w-auto rounded-md ml-8"
           />
@@ -355,14 +355,27 @@
           </div>
         </div>
       </div>
-      <img src="/Logo Merk.png" alt="brand" class="m-6">
+      <img src="/images/Logo Merk.png" alt="brand" class="m-6">
     </section>
+    <div class="container mx-auto px-8 py-4">
+      <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">Mitra Kami :</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div v-for="(mitra, index) in mitraList" 
+           :key="index"
+           class="p-2  rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 bg-white">
+        <p class="text-gray-600 font-medium text-xs text-center">
+          {{ mitra }}
+        </p>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script setup>
 import SectionTitle from "@/components/Title/SectionTitle.vue";
 import { ref } from "vue";
+const baseUrl = import.meta.env.BASE_URL
 
 // untuk layanan kami
 function scrollToSection(sectionId) {
@@ -372,11 +385,14 @@ function scrollToSection(sectionId) {
   }
 }
 
+import airConditionerImg from "@/assets/images/air-conditioner.png";
+import airDryerImg from "@/assets/images/air-dryer.png";
+import refrigerasiImg from "@/assets/images/refrigerasi.png";
 // Services Sections Item
 const services = ref([
   {
     id: 1,
-    image: "./public/air-conditioner.png",
+    image: airConditionerImg,
     title: "Air Conditioner",
     description: `Layanan AC dan pendingin yang terpercaya,
         berkualitas dan bergaransi, yang tersedia beberapa
@@ -385,23 +401,28 @@ const services = ref([
   },
   {
     id: 2,
-    image: "./public/air-dryer.png",
+    image: airDryerImg,
     title: "Air Dryer",
     description: `Layanan Khusus Air Dryer / Mesin Pengering Udara dari berbagai Brand, Donaldson, CompAir, Hakinson, atlas Copco, Friul, dll.`,
   },
   {
     id: 3,
-    image: "./public/refrigerasi.png",
+    image: refrigerasiImg,
     title: "Refrigerasi",
     description: `Layanan Perawatan, Refrigasi, Instalasi, Air Blast Freezer, Air Handling Unit, ColdRoomm Fabrikasi Cold Storage, dll.`,
   },
 ]);
 
 //Product section item
+import instalasiImg from "@/assets/images/instalasi.png";
+import cuciImg from "@/assets/images/cuci.png";
+import konsulImg from "@/assets/images/konsul.png";
+import perawatanImg from "@/assets/images/perawatan.png";
+import perbaikanImg from "@/assets/images/perbaikan.png";
 const products = ref([
   {
     id: 1,
-    image: "./public/produk/instalasi.png",
+    image: instalasiImg,
     title: "Instalasi AC Baru",
     description: [
       "Konsultasi kebutuhan pendingin ruangan",
@@ -412,7 +433,7 @@ const products = ref([
   },
   {
     id: 2,
-    image: "./public/produk/perawatan.png",
+    image: perawatanImg,
     title: "Perawatan Berkala",
     description: [
       "Pembersihan filter",
@@ -424,7 +445,7 @@ const products = ref([
   },
   {
     id: 3,
-    image: "./public/produk/perbaikan.png",
+    image: perbaikanImg,
     title: "Perbaikan dan Reparasi",
     description: [
       "Diagnosa kerusakan AC",
@@ -436,7 +457,7 @@ const products = ref([
   },
   {
     id: 4,
-    image: "./public/produk/cuci.png",
+    image: cuciImg,
     title: "Jasa Cuci AC",
     description: [
       "Cuci indoor/outdoor unit",
@@ -446,7 +467,7 @@ const products = ref([
   },
   {
     id: 5,
-    image: "./public/produk/konsul.png",
+    image: konsulImg,
     title: "Konsultasi dan Saran Teknis",
     description: [
       "Konsultasi pemilihan AC",
@@ -553,4 +574,22 @@ const contactInfo = ref([
     svg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" width="15" height="15" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.118 14.702L14 15.5c-2.782-1.396-4.5-3-5.5-5.5l.77-4.13L7.815 2H4.064c-1.128 0-2.016.932-1.847 2.047c.42 2.783 1.66 7.83 5.283 11.453c3.805 3.805 9.286 5.456 12.302 6.113c1.165.253 2.198-.655 2.198-1.848v-3.584z"/></svg>`,
   },
 ]);
+
+const mitraList = [
+  'PT.DIKIRA GUNA RAKSA',
+  'PT.KARYA UTAMA PERDANA',
+  'PT.MANUNGGAL SUMBER DAYA',
+  'PT.MANGGALA GELORA PERKASA',
+  'PT.ABI NATHA MUGIA',
+  'DIREKTORAT JENDRAL KETENAGA LISTRIKAN',
+  'PT.SAYANA INTEGRA PROFERTI',
+  'PT.SAKURA ESTATE MANAJEMENT',
+  'KEMENTRIAN ENERGI DAN SUMBER DAYA MINERAL RI',
+  'PT.MELAWAI JAYA REALTY',
+  'PT.KARYA UTAMA PERDANA',
+  'PT.KURNADI ABADI',
+  'DIREKTORAT JENDRAL ADMINISTRASI HUKUM UMUM',
+  'APARTEMEN SENCY',
+  'KEJAKSAAN NEGRI TANGGERANG SELATAN',
+]
 </script>

@@ -65,7 +65,7 @@ function scrollToSection(sectionId) {
                     </ul>
                 </div>
         <img
-          src="/public/feliya.png"
+          src="/images/feliya.png"
           alt="logo"
           class="w-[80px] h-[68px] ml-6 object-contain"
         />
@@ -98,7 +98,7 @@ function scrollToSection(sectionId) {
             </div>
 
       <div class="navbar-end">
-        <img src="/public/LogoWhatsApp.png" alt="logoWa" class="h-10 mr-6 hover:brightness-90 cursor-pointer" />
+        <img src="/images/LogoWhatsApp.png" alt="logoWa" class="h-10 mr-6 hover:brightness-90 cursor-pointer" />
       </div>
     </div>
   </nav>
