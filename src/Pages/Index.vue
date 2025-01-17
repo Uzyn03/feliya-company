@@ -3,7 +3,7 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      :style="{backgroundImage: `url('${baseUrl}images/FotoBG.jpg')`}"
+      :style="{ backgroundImage: `url('${baseUrl}images/FotoBG.jpg')` }"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -154,7 +154,7 @@
       <div class="md:py-8 p-4 flex flex-col md:flex-row gap-12 items-baseline">
         <!-- Item 1 -->
         <div
-          class="max-w-sm rounded overflow-hidden shadow-lg "
+          class="max-w-sm rounded overflow-hidden shadow-lg"
           v-for="service in services"
           :key="service.id"
         >
@@ -223,7 +223,7 @@
     </section>
 
     <!-- Why Choose Use Section -->
-    <section>
+    <section id="choose">
       <div class="container w-fit mx-auto my-12">
         <!-- Title -->
         <SectionTitle>
@@ -313,11 +313,11 @@
       </div>
 
       <!-- About Us Contact -->
-      <div
-        class="flex md:flex-row flex-col md:p-0 p-4 justify-evenly my-12 gap-10"
+      <section id="contact"
+        class="flex md:flex-row flex-col md:p-0 p-4 justify-between my-12 gap-10"
       >
         <!-- Text -->
-        <div class="flex flex-1 flex-col gap-8">
+        <div class="flex flex-col gap-8 ml-4">
           <h1 class="text-4xl max-w-lg font-medium text-slate-800">
             Hubungi Kami
           </h1>
@@ -329,7 +329,7 @@
         </div>
         <!-- Contact -->
         <div id="contact" class="flex items-start">
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid md:grid-cols-1 gap-4">
             <div
               class="flex flex-col md:items-center items-start gap-2"
               v-for="contact in contactInfo"
@@ -354,28 +354,32 @@
             </div>
           </div>
         </div>
-      </div>
-      <img src="/images/Logo Merk.png" alt="brand" class="m-6">
+      </section>
+      <img src="/images/Logo Merk.png" alt="brand" class="m-6" />
     </section>
     <div class="container mx-auto px-8 py-4">
-      <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">Mitra Kami :</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-      <div v-for="(mitra, index) in mitraList" 
-           :key="index"
-           class="p-2  rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 bg-white">
-        <p class="text-gray-600 font-medium text-xs text-center">
-          {{ mitra }}
-        </p>
+      <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">
+        Mitra Kami :
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div
+          v-for="(mitra, index) in mitraList"
+          :key="index"
+          class="p-2 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 bg-white"
+        >
+          <p class="text-gray-600 font-medium text-xs text-center">
+            {{ mitra }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script setup>
 import SectionTitle from "@/components/Title/SectionTitle.vue";
 import { ref } from "vue";
-const baseUrl = import.meta.env.BASE_URL
+const baseUrl = import.meta.env.BASE_URL;
 
 // untuk layanan kami
 function scrollToSection(sectionId) {
@@ -563,8 +567,10 @@ const whyChooseUs = ref([
 const contactInfo = ref([
   {
     title: "Alamat Kami",
-    description_1: "Jl.Srengseng Sawah No. 004 RT.002 RW.007,",
-    description_2: "Kota ADM.Jakarta Selatan, DKI Jakata 12640",
+    description_1:
+      "Leeon, GMI Building Jl.Srengseng Sawah No.004 RT.002 RW.007,",
+    description_2:
+      "Kel.Srengseng sawah Kec.Jagakarsa, Kota ADM.Jakarta Selatan, DKI Jakata 12640",
     svg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" width="15" height=15 viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M9.5 14.5L3 21"/><path fill="currentColor" d="m5 9.485l9.193 9.193l1.697-1.697l-.393-3.787l5.51-4.673l-5.85-5.85l-4.674 5.51l-3.786-.393z"/></g></svg>`,
   },
   {
@@ -576,20 +582,20 @@ const contactInfo = ref([
 ]);
 
 const mitraList = [
-  'PT.DIKIRA GUNA RAKSA',
-  'PT.KARYA UTAMA PERDANA',
-  'PT.MANUNGGAL SUMBER DAYA',
-  'PT.MANGGALA GELORA PERKASA',
-  'PT.ABI NATHA MUGIA',
-  'DIREKTORAT JENDRAL KETENAGA LISTRIKAN',
-  'PT.SAYANA INTEGRA PROFERTI',
-  'PT.SAKURA ESTATE MANAJEMENT',
-  'KEMENTRIAN ENERGI DAN SUMBER DAYA MINERAL RI',
-  'PT.MELAWAI JAYA REALTY',
-  'PT.KARYA UTAMA PERDANA',
-  'PT.KURNADI ABADI',
-  'DIREKTORAT JENDRAL ADMINISTRASI HUKUM UMUM',
-  'APARTEMEN SENCY',
-  'KEJAKSAAN NEGRI TANGGERANG SELATAN',
-]
+  "PT.DIKIRA GUNA RAKSA",
+  "PT.KARYA UTAMA PERDANA",
+  "PT.MANUNGGAL SUMBER DAYA",
+  "PT.MANGGALA GELORA PERKASA",
+  "PT.ABI NATHA MUGIA",
+  "DIREKTORAT JENDRAL KETENAGA LISTRIKAN",
+  "PT.SAYANA INTEGRA PROFERTI",
+  "PT.SAKURA ESTATE MANAJEMENT",
+  "KEMENTRIAN ENERGI DAN SUMBER DAYA MINERAL RI",
+  "PT.MELAWAI JAYA REALTY",
+  "PT.KARYA UTAMA PERDANA",
+  "PT.KURNADI ABADI",
+  "DIREKTORAT JENDRAL ADMINISTRASI HUKUM UMUM",
+  "APARTEMEN SENCY",
+  "KEJAKSAAN NEGRI TANGGERANG SELATAN",
+];
 </script>

@@ -1,3 +1,13 @@
+<script setup>
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+}
+</script>
+
 <template>
     <footer class="border-t bg-blue-950">
         <div>
@@ -13,8 +23,8 @@
                     </p>
                     <div>
                         <h1 class="text-xl font-semibold">
-                            Jl.Srengseng Sawah,
-                            Kel.Srengseng Sawah Kec.Jagakarsa, Kota ADM.Jakarta
+                            Leeon, GMI Building Jl.Srengseng Sawah <br> No.004 RT.002 RW.007
+                            Kel.Srengseng Sawah Kec.Jagakarsa,<br> Kota ADM.Jakarta
                             Selatan, DKI Jakata 12640
                         </h1>
                         <h1 class="text-lg font-thin">
@@ -29,25 +39,24 @@
 
                 <nav>
                     <span class="footer-title text-2xl">Layanan</span>
-                    <a class="link link-hover">Air Conditioner</a>
-                    <a class="link link-hover">Air Dryer</a>
-                    <a class="link link-hover">Air Purifier</a>
-                    <a class="link link-hover">Refrigerasi</a>
+                    <a @click.prevent="scrollToSection('services')" class="link link-hover">Air Conditioner</a>
+                    <a @click.prevent="scrollToSection('services')" class="link link-hover">Air Dryer</a>
+                    <a @click.prevent="scrollToSection('services')" class="link link-hover">Refrigerasi</a>
                 </nav>
 
                 <nav>
                     <span class="footer-title text-2xl">Company</span>
-                    <a class="link link-hover">Home</a>
-                    <a class="link link-hover">About Us</a>
-                    <a class="link link-hover">Contact</a>
-                    <a class="link link-hover">Why Choose Us</a>
+                    <a @click.prevent="scrollToSection('home')" class="link link-hover">Home</a>
+                    <a @click.prevent="scrollToSection('about')" class="link link-hover">About Us</a>
+                    <a @click.prevent="scrollToSection('contact')" class="link link-hover">Contact</a>
+                    <a @click.prevent="scrollToSection('choose')" class="link link-hover">Why Choose Us</a>
                 </nav>
 
                 <nav>
                    <span class="footer-title text-2xl">Sosial Media</span>
                     <a class="link link-hover">Facebook</a>
                     <a class="link link-hover">Instagram</a>
-                    <a class="link link-hover">Whatsapp</a> 
+                    <a href="https://wa.me/6287876913139" target="_blank" rel="noopener noreferrer" class="link link-hover">Whatsapp</a> 
                 </nav>
             </div>
         </div>

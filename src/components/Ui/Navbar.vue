@@ -8,7 +8,7 @@ function scrollToSection(sectionId) {
 }
 </script>
 
-<template>
+<template> 
   <nav
     class="sticky top-0 w-full z-30 border-b bg-white border-orange-500 h-[68px] flex text-slate-700"
   >
@@ -98,7 +98,9 @@ function scrollToSection(sectionId) {
             </div>
 
       <div class="navbar-end">
+        <a href="https://wa.me/6287876913139" target="_blank" rel="noopener noreferrer">
         <img src="/images/LogoWhatsApp.png" alt="logoWa" class="h-10 mr-6 hover:brightness-90 cursor-pointer" />
+        </a>
       </div>
     </div>
   </nav>
