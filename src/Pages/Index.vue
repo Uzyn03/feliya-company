@@ -3,7 +3,7 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      :style="{ backgroundImage: `url('${baseUrl}images/FotoBG.jpg')` }"
+      :style="{ backgroundImage: `url('${baseUrl}dist/FotoBG.jpg')` }"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -305,7 +305,7 @@
         <!-- Image -->
         <div class="mx-auto md:mx-0">
           <img
-            src="/images/about.png"
+            src="/dist/about.png"
             alt="about"
             class="h-48 md:h-96 md:w-auto rounded-md ml-8"
           />
@@ -313,7 +313,8 @@
       </div>
 
       <!-- About Us Contact -->
-      <section id="contact"
+      <section
+        id="contact"
         class="flex md:flex-row flex-col md:p-0 p-4 justify-between my-12 gap-10"
       >
         <!-- Text -->
@@ -355,11 +356,11 @@
           </div>
         </div>
       </section>
-      <img src="/images/Logo Merk.png" alt="brand" class="m-6" />
+      <img src="/dist/Logo Merk.png" alt="brand" class="m-6" />
     </section>
     <div class="container mx-auto px-8 py-4">
       <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">
-        Mitra Kami :
+        Terpercaya oleh :
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         <div
