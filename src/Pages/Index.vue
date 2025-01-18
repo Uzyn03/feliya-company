@@ -3,7 +3,7 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      :style="{ backgroundImage: `url('${baseUrl}dist/FotoBG.jpg')` }"
+      :style="{ backgroundImage: `url('https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208164/FotoBG_mqdqww.jpg')` }"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -305,7 +305,7 @@
         <!-- Image -->
         <div class="mx-auto md:mx-0">
           <img
-            src="/dist/about.png"
+            src="https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208165/about_pfmsgu.png"
             alt="about"
             class="h-48 md:h-96 md:w-auto rounded-md ml-8"
           />
@@ -356,7 +356,7 @@
           </div>
         </div>
       </section>
-      <img src="/dist/Logo Merk.png" alt="brand" class="m-6" />
+      <img src="https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208163/Logo_Merk_xgadjc.png" alt="brand" class="m-6" />
     </section>
     <div class="container mx-auto px-8 py-4">
       <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">
@@ -390,14 +390,12 @@ function scrollToSection(sectionId) {
   }
 }
 
-import airConditionerImg from "@/assets/images/air-conditioner.png";
-import airDryerImg from "@/assets/images/air-dryer.png";
-import refrigerasiImg from "@/assets/images/refrigerasi.png";
+
 // Services Sections Item
 const services = ref([
   {
     id: 1,
-    image: airConditionerImg,
+    image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-conditioner_iwrofs.png',
     title: "Air Conditioner",
     description: `Layanan AC dan pendingin yang terpercaya,
         berkualitas dan bergaransi, yang tersedia beberapa
@@ -406,28 +404,24 @@ const services = ref([
   },
   {
     id: 2,
-    image: airDryerImg,
+    image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-dryer_ijcvjy.png',
     title: "Air Dryer",
     description: `Layanan Khusus Air Dryer / Mesin Pengering Udara dari berbagai Brand, Donaldson, CompAir, Hakinson, atlas Copco, Friul, dll.`,
   },
   {
     id: 3,
-    image: refrigerasiImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208208/refrigerasi_wtqfal.png",
     title: "Refrigerasi",
     description: `Layanan Perawatan, Refrigasi, Instalasi, Air Blast Freezer, Air Handling Unit, ColdRoomm Fabrikasi Cold Storage, dll.`,
   },
 ]);
 
 //Product section item
-import instalasiImg from "@/assets/images/instalasi.png";
-import cuciImg from "@/assets/images/cuci.png";
-import konsulImg from "@/assets/images/konsul.png";
-import perawatanImg from "@/assets/images/perawatan.png";
-import perbaikanImg from "@/assets/images/perbaikan.png";
+
 const products = ref([
   {
     id: 1,
-    image: instalasiImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/instalasi_ga5fr5.png",
     title: "Instalasi AC Baru",
     description: [
       "Konsultasi kebutuhan pendingin ruangan",
@@ -438,7 +432,7 @@ const products = ref([
   },
   {
     id: 2,
-    image: perawatanImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perawatan_nwxlvz.png",
     title: "Perawatan Berkala",
     description: [
       "Pembersihan filter",
@@ -450,7 +444,7 @@ const products = ref([
   },
   {
     id: 3,
-    image: perbaikanImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perbaikan_ao3oxk.png",
     title: "Perbaikan dan Reparasi",
     description: [
       "Diagnosa kerusakan AC",
@@ -462,7 +456,7 @@ const products = ref([
   },
   {
     id: 4,
-    image: cuciImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/cuci_qnrqzu.png",
     title: "Jasa Cuci AC",
     description: [
       "Cuci indoor/outdoor unit",
@@ -472,7 +466,7 @@ const products = ref([
   },
   {
     id: 5,
-    image: konsulImg,
+    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/konsul_lgsjyh.png",
     title: "Konsultasi dan Saran Teknis",
     description: [
       "Konsultasi pemilihan AC",

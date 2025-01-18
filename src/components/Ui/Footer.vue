@@ -15,7 +15,7 @@ function scrollToSection(sectionId) {
                 class="footer max-w-full text-white p-10 flex flex-col md:flex-row justify-evenly"
             >
                 <aside>
-                    <img src="/dist/feliya.png" class="h-24" />
+                    <img src="https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208162/feliya_saumnm.svg" class="h-24" />
                     <p>
                         <span class="footer-title text-4xl inline-block mb-4"
                             >Feliya Laju Teknik</span
