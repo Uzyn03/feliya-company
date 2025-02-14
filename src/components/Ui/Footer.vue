@@ -53,9 +53,7 @@ function scrollToSection(sectionId) {
                 </nav>
 
                 <nav>
-                   <span class="footer-title text-2xl">Sosial Media</span>
-                    <a class="link link-hover">Facebook</a>
-                    <a class="link link-hover">Instagram</a>
+                   <span class="footer-title text-2xl">Contact</span>
                     <a href="https://wa.me/6287876913139" target="_blank" rel="noopener noreferrer" class="link link-hover">Whatsapp</a> 
                 </nav>
             </div>
