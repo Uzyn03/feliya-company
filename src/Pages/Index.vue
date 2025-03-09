@@ -176,7 +176,7 @@
                   {{ service.title }}
                 </div>
                 <p class="text-base">
-                  {{ service.description }}
+                  {{ service.content}}
                 </p>
               </div>
             </div>
@@ -210,13 +210,13 @@
           </div>
 
           <ul class="list-disc ml-5 mt-2">
-            <li
-              v-for="(item, index) in product.description"
+            <!-- <li
+              v-for="(item, index) in product.content"
               :key="index"
               class="text-gray-500"
             >
               {{ item }}
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -364,12 +364,12 @@
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         <div
-          v-for="(mitra, index) in mitraList"
+          v-for="(mitra, index) in partners"
           :key="index"
           class="p-2 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 bg-white"
         >
           <p class="text-gray-600 font-medium text-xs text-center">
-            {{ mitra }}
+            {{ mitra.title }}
           </p>
         </div>
       </div>
@@ -379,8 +379,34 @@
 
 <script setup>
 import SectionTitle from "@/components/Title/SectionTitle.vue";
-import { ref } from "vue";
-const baseUrl = import.meta.env.BASE_URL;
+import { ref, onMounted, computed } from "vue";
+import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
+// Define reactive state untuk menyimpan data
+const content = ref([]);
+
+// Fungsi untuk fetch data dari API
+const fetchData = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/content/all`);
+    // Ambil array dari property data di response
+    content.value = response.data.data; // Perhatikan .data kedua di sini
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+// Ambil data saat komponen di-mount
+onMounted(fetchData);
+
+// Filter berdasarkan kategori
+const products = computed(() => content.value.filter(item => item.category === "Produk"));
+const services = computed(() => content.value.filter(item => item.category === "Layanan"));
+const partners = computed(() => content.value.filter(item => item.category === "Mitra"));
+
+
 
 // untuk layanan kami
 function scrollToSection(sectionId) {
@@ -392,90 +418,90 @@ function scrollToSection(sectionId) {
 
 
 // Services Sections Item
-const services = ref([
-  {
-    id: 1,
-    image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-conditioner_iwrofs.png',
-    title: "Air Conditioner",
-    description: `Layanan AC dan pendingin yang terpercaya,
-        berkualitas dan bergaransi, yang tersedia beberapa
-        tipe, mulai dari AC Split, AC Single, AC 1.5 dan AC
-        3.0.`,
-  },
-  {
-    id: 2,
-    image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-dryer_ijcvjy.png',
-    title: "Air Dryer",
-    description: `Layanan Khusus Air Dryer / Mesin Pengering Udara dari berbagai Brand, Donaldson, CompAir, Hakinson, atlas Copco, Friul, dll.`,
-  },
-  {
-    id: 3,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208208/refrigerasi_wtqfal.png",
-    title: "Refrigerasi",
-    description: `Layanan Perawatan, Refrigasi, Instalasi, Air Blast Freezer, Air Handling Unit, ColdRoomm Fabrikasi Cold Storage, dll.`,
-  },
-]);
+// const services = ref([
+//   {
+//     id: 1,
+//     image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-conditioner_iwrofs.png',
+//     title: "Air Conditioner",
+//     description: `Layanan AC dan pendingin yang terpercaya,
+//         berkualitas dan bergaransi, yang tersedia beberapa
+//         tipe, mulai dari AC Split, AC Single, AC 1.5 dan AC
+//         3.0.`,
+//   },
+//   {
+//     id: 2,
+//     image: 'https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/air-dryer_ijcvjy.png',
+//     title: "Air Dryer",
+//     description: `Layanan Khusus Air Dryer / Mesin Pengering Udara dari berbagai Brand, Donaldson, CompAir, Hakinson, atlas Copco, Friul, dll.`,
+//   },
+//   {
+//     id: 3,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208208/refrigerasi_wtqfal.png",
+//     title: "Refrigerasi",
+//     description: `Layanan Perawatan, Refrigasi, Instalasi, Air Blast Freezer, Air Handling Unit, ColdRoomm Fabrikasi Cold Storage, dll.`,
+//   },
+// ]);
 
 //Product section item
 
-const products = ref([
-  {
-    id: 1,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/instalasi_ga5fr5.png",
-    title: "Instalasi AC Baru",
-    description: [
-      "Konsultasi kebutuhan pendingin ruangan",
-      "Pemilihan unit AC sesuai ukuran dan kebutuhan ruangan",
-      "Pemasangan profesional",
-      "Uji coba dan kalibrasi sistem",
-    ],
-  },
-  {
-    id: 2,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perawatan_nwxlvz.png",
-    title: "Perawatan Berkala",
-    description: [
-      "Pembersihan filter",
-      "Pengecekan kelembaban dan kinerja mesin",
-      "Pembersihan saluran udara",
-      "Pelumasan komponen",
-      "Pengecekan tekanan freon",
-    ],
-  },
-  {
-    id: 3,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perbaikan_ao3oxk.png",
-    title: "Perbaikan dan Reparasi",
-    description: [
-      "Diagnosa kerusakan AC",
-      "Penggantian komponen rusak",
-      "Perbaikan sistem pendingin",
-      "Servis darurat",
-      "Perbaikan bocoran freon",
-    ],
-  },
-  {
-    id: 4,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/cuci_qnrqzu.png",
-    title: "Jasa Cuci AC",
-    description: [
-      "Cuci indoor/outdoor unit",
-      "Sterilisasi dan pembersihan menyeluruh",
-      "Penanganan jamur dan bakteri",
-    ],
-  },
-  {
-    id: 5,
-    image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/konsul_lgsjyh.png",
-    title: "Konsultasi dan Saran Teknis",
-    description: [
-      "Konsultasi pemilihan AC",
-      "Saran efisiensi energi",
-      "Rekomendasi perawatan",
-      "Evaluasi sistem pendingin",
-    ],
-  },
-]);
+// const products = ref([
+//   {
+//     id: 1,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/instalasi_ga5fr5.png",
+//     title: "Instalasi AC Baru",
+//     description: [
+//       "Konsultasi kebutuhan pendingin ruangan",
+//       "Pemilihan unit AC sesuai ukuran dan kebutuhan ruangan",
+//       "Pemasangan profesional",
+//       "Uji coba dan kalibrasi sistem",
+//     ],
+//   },
+//   {
+//     id: 2,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perawatan_nwxlvz.png",
+//     title: "Perawatan Berkala",
+//     description: [
+//       "Pembersihan filter",
+//       "Pengecekan kelembaban dan kinerja mesin",
+//       "Pembersihan saluran udara",
+//       "Pelumasan komponen",
+//       "Pengecekan tekanan freon",
+//     ],
+//   },
+//   {
+//     id: 3,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/perbaikan_ao3oxk.png",
+//     title: "Perbaikan dan Reparasi",
+//     description: [
+//       "Diagnosa kerusakan AC",
+//       "Penggantian komponen rusak",
+//       "Perbaikan sistem pendingin",
+//       "Servis darurat",
+//       "Perbaikan bocoran freon",
+//     ],
+//   },
+//   {
+//     id: 4,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208206/cuci_qnrqzu.png",
+//     title: "Jasa Cuci AC",
+//     description: [
+//       "Cuci indoor/outdoor unit",
+//       "Sterilisasi dan pembersihan menyeluruh",
+//       "Penanganan jamur dan bakteri",
+//     ],
+//   },
+//   {
+//     id: 5,
+//     image: "https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208207/konsul_lgsjyh.png",
+//     title: "Konsultasi dan Saran Teknis",
+//     description: [
+//       "Konsultasi pemilihan AC",
+//       "Saran efisiensi energi",
+//       "Rekomendasi perawatan",
+//       "Evaluasi sistem pendingin",
+//     ],
+//   },
+// ]);
 
 // Why Choose Use Section Item
 const whyChooseUs = ref([
@@ -576,21 +602,21 @@ const contactInfo = ref([
   },
 ]);
 
-const mitraList = [
-  "PT.DIKIRA GUNA RAKSA",
-  "PT.KARYA UTAMA PERDANA",
-  "PT.MANUNGGAL SUMBER DAYA",
-  "PT.MANGGALA GELORA PERKASA",
-  "PT.ABI NATHA MUGIA",
-  "DIREKTORAT JENDRAL KETENAGA LISTRIKAN",
-  "PT.SAYANA INTEGRA PROFERTI",
-  "PT.SAKURA ESTATE MANAJEMENT",
-  "KEMENTRIAN ENERGI DAN SUMBER DAYA MINERAL RI",
-  "PT.MELAWAI JAYA REALTY",
-  "PT.KARYA UTAMA PERDANA",
-  "PT.KURNADI ABADI",
-  "DIREKTORAT JENDRAL ADMINISTRASI HUKUM UMUM",
-  "APARTEMEN SENCY",
-  "KEJAKSAAN NEGRI TANGGERANG SELATAN",
-];
+// const mitraList = [
+//   "PT.DIKIRA GUNA RAKSA",
+//   "PT.KARYA UTAMA PERDANA",
+//   "PT.MANUNGGAL SUMBER DAYA",
+//   "PT.MANGGALA GELORA PERKASA",
+//   "PT.ABI NATHA MUGIA",
+//   "DIREKTORAT JENDRAL KETENAGA LISTRIKAN",
+//   "PT.SAYANA INTEGRA PROFERTI",
+//   "PT.SAKURA ESTATE MANAJEMENT",
+//   "KEMENTRIAN ENERGI DAN SUMBER DAYA MINERAL RI",
+//   "PT.MELAWAI JAYA REALTY",
+//   "PT.KARYA UTAMA PERDANA",
+//   "PT.KURNADI ABADI",
+//   "DIREKTORAT JENDRAL ADMINISTRASI HUKUM UMUM",
+//   "APARTEMEN SENCY",
+//   "KEJAKSAAN NEGRI TANGGERANG SELATAN",
+// ];
 </script>
