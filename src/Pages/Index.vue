@@ -3,7 +3,9 @@
     <section
       id="home"
       class="relative flex justify-center items-center min-h-[calc(100vh-68px)] bg-cover bg-center bg-no-repeat"
-      :style="{ backgroundImage: `url('https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208164/FotoBG_mqdqww.jpg')` }"
+      :style="{
+        backgroundImage: `url('https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208164/FotoBG_mqdqww.jpg')`,
+      }"
     >
       <!-- Text di tengah -->
       <div class="relative z-10 text-center text-white">
@@ -176,7 +178,7 @@
                   {{ service.title }}
                 </div>
                 <p class="text-base">
-                  {{ service.content}}
+                  {{ service.content }}
                 </p>
               </div>
             </div>
@@ -210,13 +212,13 @@
           </div>
 
           <ul class="list-disc ml-5 mt-2">
-            <!-- <li
-              v-for="(item, index) in product.content"
+            <li
+              v-for="(item, index) in product.content.split('\n')"
               :key="index"
               class="text-gray-500"
             >
               {{ item }}
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -356,7 +358,11 @@
           </div>
         </div>
       </section>
-      <img src="https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208163/Logo_Merk_xgadjc.png" alt="brand" class="m-6" />
+      <img
+        src="https://res.cloudinary.com/dimnxx6fd/image/upload/v1737208163/Logo_Merk_xgadjc.png"
+        alt="brand"
+        class="m-6"
+      />
     </section>
     <div class="container mx-auto px-8 py-4">
       <h2 class="text-3xl font-medium mb-8 text-center text-slate-800">
@@ -383,7 +389,6 @@ import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-
 // Define reactive state untuk menyimpan data
 const content = ref([]);
 
@@ -402,11 +407,15 @@ const fetchData = async () => {
 onMounted(fetchData);
 
 // Filter berdasarkan kategori
-const products = computed(() => content.value.filter(item => item.category === "Produk"));
-const services = computed(() => content.value.filter(item => item.category === "Layanan"));
-const partners = computed(() => content.value.filter(item => item.category === "Mitra"));
-
-
+const products = computed(() =>
+  content.value.filter((item) => item.category === "Produk")
+);
+const services = computed(() =>
+  content.value.filter((item) => item.category === "Layanan")
+);
+const partners = computed(() =>
+  content.value.filter((item) => item.category === "Mitra")
+);
 
 // untuk layanan kami
 function scrollToSection(sectionId) {
@@ -415,7 +424,6 @@ function scrollToSection(sectionId) {
     section.scrollIntoView({ behavior: "smooth" });
   }
 }
-
 
 // Services Sections Item
 // const services = ref([
